@@ -192,12 +192,12 @@ elasticsearch:
 minio:
   enabled: true
   auth:
-    rootUser: please-change-me
-    rootPassword: its-not-a-secret
+    rootUser: user
+    rootPassword: password
   defaultBuckets: kestra
   resources:
     requests:
-      memory: 512Mi
+      memory: 1G
 
 ### Postgresql
 postgresql:
