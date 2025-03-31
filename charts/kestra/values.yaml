@@ -211,7 +211,7 @@ postgresql:
     persistence:
       enabled: true
       useExistingClaim: true        # Set to true if you want to use an existing PVC
-      existingClaim: "kestra-postgresql"  # The name of the PVC that already exists
+      existingClaim: "kestra-postgresql-pvc"  # The name of the PVC that already exists
       storageClass: "longhorn"        # (Optional) Only used when dynamically provisioning a volume
       accessMode: ReadWriteOnce       # (Optional) Only used when dynamically provisioning a volume
       size: 10Gi
