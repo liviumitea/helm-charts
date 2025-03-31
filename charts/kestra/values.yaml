@@ -160,10 +160,12 @@ dind:
     - --log-level=fatal
     - --group=1000
   securityContext:
-    runAsUser: 1000
-    runAsGroup: 1000
+    privileged: true
+    runAsUser: 0
+    runAsGroup: 0
   extraVolumeMounts: []
   extraEnv: []
+
 
 ### Kafka
 kafka:
