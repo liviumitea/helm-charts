@@ -82,7 +82,7 @@ deployments:
       minReplicas: 1
       maxReplicas: 3
       extra: {}
-      metrics: []
+      metrics:
        - type: Resource
          resource:
            name: cpu
