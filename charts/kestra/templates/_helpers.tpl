@@ -289,64 +289,6 @@ spec:
               protocol: TCP
           {{- if or $.Values.startupProbe.enabled $deployment.startupProbe.enabled }}
           {{- $startupProbe := merge (or $deployment.startupProbe dict) $.Values.startupProbe }}
-          startupProbe:
-            {{- if $startupProbe.httpGetEnabled }}
-            httpGet:
-              path: {{ $startupProbe.path }}
-              port: {{ $startupProbe.port }}
-              {{- with $startupProbe.httpGetExtra }}
-              {{ toYaml . | nindent 14  }}
-              {{- end }}
-            {{- end }}
-            {{- with $startupProbe.exec }}
-            exec: {{- toYaml . | nindent 4 }}
-            {{- end }}
-            initialDelaySeconds: {{ $startupProbe.initialDelaySeconds }}
-            periodSeconds: {{ $startupProbe.periodSeconds }}
-            timeoutSeconds: {{ $startupProbe.timeoutSeconds }}
-            successThreshold: {{ $startupProbe.successThreshold }}
-            failureThreshold: {{ $startupProbe.failureThreshold }}
-          {{- end }}
-          {{- if or $.Values.livenessProbe.enabled $deployment.livenessProbe.enabled }}
-          {{- $livenessProbe := merge (or $deployment.livenessProbe dict) $.Values.livenessProbe }}
-          livenessProbe:
-            {{- if $livenessProbe.httpGetEnabled }}
-            httpGet:
-              path: {{ $livenessProbe.path }}
-              port: {{ $livenessProbe.port }}
-              {{- with $livenessProbe.httpGetExtra }}
-              {{- toYaml . | nindent 14 }}
-              {{- end }}
-            {{- end }}
-            {{- with $livenessProbe.exec }}
-            exec: {{- toYaml . | nindent 4 }}
-            {{- end }}
-            initialDelaySeconds: {{ $livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ $livenessProbe.periodSeconds }}
-            timeoutSeconds: {{ $livenessProbe.timeoutSeconds }}
-            successThreshold: {{ $livenessProbe.successThreshold }}
-            failureThreshold: {{ $livenessProbe.failureThreshold }}
-          {{- end }}
-          {{- if or $.Values.readinessProbe.enabled $deployment.readinessProbe.enabled }}
-          {{- $readinessProbe := merge (or $deployment.readinessProbe dict) $.Values.readinessProbe }}
-          readinessProbe:
-            {{- if $readinessProbe.httpGetEnabled }}
-            httpGet:
-              path: {{ $readinessProbe.path }}
-              port: {{ $readinessProbe.port }}
-              {{- with $readinessProbe.httpGetExtra }}
-              {{- toYaml . | nindent 14 }}
-              {{- end }}
-            {{- end }}
-            {{- with $readinessProbe.exec }}
-            exec: {{- toYaml . | nindent 4 }}
-            {{- end }}
-            initialDelaySeconds: {{ $readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ $readinessProbe.periodSeconds }}
-            timeoutSeconds: {{ $readinessProbe.timeoutSeconds }}
-            successThreshold: {{ $readinessProbe.successThreshold }}
-            failureThreshold: {{ $readinessProbe.failureThreshold }}
-          {{- end }}
           resources:
             {{- toYaml (default $.Values.resources $deployment.resources) | nindent 12 }}
         {{- if $dind }}
