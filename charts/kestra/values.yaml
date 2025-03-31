@@ -199,7 +199,14 @@ minio:
   defaultBuckets: kestra
   resources:
     requests:
-      memory: 1G
+      memory: 512Mb
+  persistence:
+    enabled: true
+    useExistingClaim: true         # Use an existing PVC instead of creating one
+    existingClaim: "kestra-minio-pvc"  # Name of your existing PVC for Minio
+    storageClass: "longhorn"         # Only used when provisioning dynamically
+    accessMode: ReadWriteOnce        # Only used when provisioning dynamically
+    size: 10Gi                     # Only used when provisioning dynamically
 
 ### Postgresql
 postgresql:
@@ -220,9 +227,9 @@ postgresql:
 
 ### Service
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 8080
-  loadBalancerIP: ""
+  loadBalancerIP: "172.16.23.36"
   annotations: {}
   management:
     enabled: false
