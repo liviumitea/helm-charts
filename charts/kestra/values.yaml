@@ -200,13 +200,13 @@ minio:
   resources:
     requests:
       memory: 512Mb
-  persistence:
-    enabled: true
-    useExistingClaim: true         # Use an existing PVC instead of creating one
-    existingClaim: "kestra-minio-pvc"  # Name of your existing PVC for Minio
-    storageClass: "longhorn"         # Only used when provisioning dynamically
-    accessMode: ReadWriteOnce        # Only used when provisioning dynamically
-    size: 10Gi                     # Only used when provisioning dynamically
+  # persistence:
+  #   enabled: true
+  #   useExistingClaim: true         # Use an existing PVC instead of creating one
+  #   existingClaim: "kestra-minio-pvc"  # Name of your existing PVC for Minio
+  #   storageClass: "longhorn"         # Only used when provisioning dynamically
+  #   accessMode: ReadWriteOnce        # Only used when provisioning dynamically
+  #   size: 10Gi                     # Only used when provisioning dynamically
 
 ### Postgresql
 postgresql:
