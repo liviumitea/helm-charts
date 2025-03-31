@@ -218,9 +218,9 @@ postgresql:
 
 ### Service
 service:
-  type: ClusterIP
-  port: 8080
-  loadBalancerIP: ""
+  type: LoadBalancer
+  port: 80
+  loadBalancerIP: "172.16.23.36"
   annotations: {}
   management:
     enabled: false
