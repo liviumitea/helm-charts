@@ -314,41 +314,41 @@ securityContext:
 ### Startup / Readiness / Liveness probe config.
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
 ## The following config is applied to all deployments by default. You can override this in each deployment.
-readinessProbe:
-  enabled: true
-  path: /health/readiness
-  port: management
-  initialDelaySeconds: 0
-  periodSeconds: 5
-  timeoutSeconds: 3
-  successThreshold: 1
-  failureThreshold: 3
-  httpGetEnabled: true
-  httpGetExtra: {}
+# readinessProbe:
+#   enabled: true
+#   path: /health/readiness
+#   port: management
+#   initialDelaySeconds: 0
+#   periodSeconds: 5
+#   timeoutSeconds: 3
+#   successThreshold: 1
+#   failureThreshold: 3
+#   httpGetEnabled: true
+#   httpGetExtra: {}
 
-livenessProbe:
-  enabled: true
-  path: /health/liveness
-  port: management
-  initialDelaySeconds: 0
-  periodSeconds: 5
-  timeoutSeconds: 3
-  successThreshold: 1
-  failureThreshold: 3
-  httpGetEnabled: true
-  httpGetExtra: {}
+# livenessProbe:
+#   enabled: true
+#   path: /health/liveness
+#   port: management
+#   initialDelaySeconds: 0
+#   periodSeconds: 5
+#   timeoutSeconds: 3
+#   successThreshold: 1
+#   failureThreshold: 3
+#   httpGetEnabled: true
+#   httpGetExtra: {}
 
-startupProbe:
-  enabled: true
-  path: /health
-  port: management
-  initialDelaySeconds: 1
-  periodSeconds: 1
-  timeoutSeconds: 1
-  successThreshold: 1
-  failureThreshold: 120
-  httpGetEnabled: true
-  httpGetExtra: {}
+# startupProbe:
+#   enabled: true
+#   path: /health
+#   port: management
+#   initialDelaySeconds: 1
+#   periodSeconds: 1
+#   timeoutSeconds: 1
+#   successThreshold: 1
+#   failureThreshold: 120
+#   httpGetEnabled: true
+#   httpGetExtra: {}
 
 ### Extra Kubernetes Manifests
 extraManifests: []
