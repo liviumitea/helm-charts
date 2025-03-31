@@ -219,7 +219,7 @@ postgresql:
 ### Service
 service:
   type: LoadBalancer
-  port: 80
+  port: 8080
   loadBalancerIP: "172.16.23.36"
   annotations: {}
   management:
